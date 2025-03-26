@@ -1,0 +1,14 @@
+gateway:
+      routes:
+        - id: items
+          predicates:
+            - Path=items
+          uri: localhost:8001
+        - id: second
+          predicates:
+            - Path=/inventory/
+          uri: localhost:8002
+        - id : auth
+          predicates:
+            - Path=/login/
+          uri: localhost:8000
