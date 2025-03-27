@@ -1,13 +1,13 @@
 from datetime import datetime
 from ..services.http_client import HttpClientManager
+from ..utils import load_routes
 
 class HealthController:
     """Controller for health check operations"""
-    def __init__(self, redis_client, http_client: HttpClientManager, route_map: dict):
+    def __init__(self, redis_client, http_client: HttpClientManager, routes_file='routes.yml'):
         self.redis_client = redis_client
         self.http_client = http_client
-        self.route_map = route_map
-    
+        self.route_map = load_routes(routes_file)    
     async def check_health(self):
         """Check health of all services"""
         # Check Redis connection

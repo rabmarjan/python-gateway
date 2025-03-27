@@ -25,10 +25,10 @@ class Settings(BaseSettings):
     RATE_LIMIT: str = os.getenv("RATE_LIMIT", "10/minute")
     
     # Microservices URLs
-    ROUTE_MAP: dict = {
-        "auth": os.getenv("AUTH_SERVICE_URL", "http://localhost:8000"),
-        "items": os.getenv("ITEMS_SERVICE_URL", "http://localhost:8001"),
-    }
+    # ROUTE_MAP: dict = {
+    #     "auth": os.getenv("AUTH_SERVICE_URL", "http://localhost:8000"),
+    #     "items": os.getenv("ITEMS_SERVICE_URL", "http://localhost:8001"),
+    # }
     
     # Trusted hosts
     ALLOWED_HOSTS: list = ["*"]  # Restrict in production

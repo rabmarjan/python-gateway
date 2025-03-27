@@ -2,7 +2,7 @@ gateway:
       routes:
         - id: items
           predicates:
-            - Path=items
+            - Path= /items/
           uri: localhost:8001
         - id: second
           predicates:

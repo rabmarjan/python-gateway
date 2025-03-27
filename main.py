@@ -50,14 +50,14 @@ def create_app() -> FastAPI:
         app.state.gateway_controller = GatewayController(
             app.state.cache_manager,
             app.state.http_client,
-            settings.ROUTE_MAP,
+            # settings.ROUTE_MAP,
             settings.CACHE_TTL
         )
         app.state.admin_controller = AdminController(app.state.http_client)
         app.state.health_controller = HealthController(
             app.state.redis,
-            app.state.http_client,
-            settings.ROUTE_MAP
+            app.state.http_client
+            # settings.ROUTE_MAP
         )
         app.dependency_overrides[get_gateway_controller] = lambda: app.state.gateway_controller
         app.dependency_overrides[get_admin_controller] = lambda: app.state.admin_controller
